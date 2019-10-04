@@ -1,0 +1,22 @@
+<section>
+    <div class="content">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container">
+            <legend>Iniciar Sesión</legend>
+            <mat-form-field class="max-width">
+                <input type="text" formControlName="username" matInput placeholder="Usuario">
+            </mat-form-field>
+            <div *ngIf="submitted && f.username.errors" class="error">
+                <span *ngIf="f.username.errors.required">Este campo es necesario</span>
+            </div>
+            <mat-form-field class="max-width">
+                <input type="password" formControlName="password" matInput placeholder="Contraseña">
+            </mat-form-field>
+            <div *ngIf="submitted && f.password.errors" class="error">
+                <span *ngIf="f.password.errors.required">Este campo es necesario</span>
+            </div>
+            <div class="btn-content">
+                <button type="submit" mat-raised-button color="primary">Iniciar Sesión</button>
+            </div>
+        </form>
+    </div>
+</section>

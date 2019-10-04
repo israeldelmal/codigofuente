@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$cf-primary: mat-palette($mat-light-blue);
+$cf-accent: mat-palette($mat-grey, 700, 800, 900);
+$cf-warn: mat-palette($mat-red);
+
+$cf-theme: mat-light-theme($cf-primary, $cf-accent, $cf-warn);
+
+@include angular-material-theme($cf-theme);

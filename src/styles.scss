@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 300;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+.max-width {
+    width: 100%;
+}
