@@ -1,31 +1,29 @@
-<section>
-    <nav>
-        <span>Hola, {{ finalData.nombre }} -> {{ finalData.posicion }}</span>
-        <button mat-raised-button color="primary" (click)="logout()">Cerrar Sesión</button>
-    </nav>
-    <div class="content-table">
-        <table class="max-width">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Modelo</th>
-                    <th>Precio</th>
-                    <th>Color</th>
-                    <th>Disponible en México</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let car of finalData.listaAutos">
-                    <td>{{ car.nombre }}</td>
-                    <td>{{ car.modelo }}</td>
-                    <td>{{ car.precio | currency }}</td>
-                    <td>{{ car.color }}</td>
-                    <td *ngIf="car.disponibleEnMexico == true; else carFalse">Sí</td>
-                    <ng-template #carFalse>
-                        <td>No</td>
-                    </ng-template>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</section>
+<nav>
+    <h1>Hola, {{ finalData?.nombre }} <span>-> {{ finalData?.posicion }}</span></h1>
+    <button mat-flat-button color="primary" (click)="logout()">Cerrar Sesión</button>
+</nav>
+<div class="content-table">
+    <table class="max-width">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Modelo</th>
+                <th>Precio</th>
+                <th>Color</th>
+                <th>Disponible en México</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of finalData?.listaAutos">
+                <td>{{ car.nombre }}</td>
+                <td>{{ car.modelo }}</td>
+                <td>{{ car.precio | currency }}</td>
+                <td>{{ car.color }}</td>
+                <td *ngIf="car.disponibleEnMexico == true; else carFalse">Sí</td>
+                <ng-template #carFalse>
+                    <td>No</td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>
