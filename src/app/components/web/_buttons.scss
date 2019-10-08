@@ -1,0 +1,84 @@
+.btn {
+    padding: 10px 20px;
+    color: black;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #b8b8b8;
+    transition: all 0.3s ease-out;
+    &:hover {
+        background-color: #b8b8b8;
+    }
+    &.orange {
+        color: white;
+        background-color: $s-orange;
+        border: 1px solid $orange;
+        &:hover {
+            background-color: $orange;
+        }
+        &.active {
+            background-color: $orange;
+        }
+    }
+    &.green {
+        color: white;
+        background-color: $s-green;
+        border: 1px solid $green;
+        &:hover {
+            background-color: $green;
+        }
+        &.active {
+            background-color: $green;
+        }
+    }
+    &.blue {
+        color: white;
+        background-color: $blue;
+        border: 1px solid $blue;
+        &:hover {
+            background-color: $blue;
+        }
+        &.active {
+            background-color: $blue;
+        }
+    }
+}
+
+.radio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    > input {
+        display: none;
+        &:checked {
+            ~ div {
+                border: 1px solid $primary;
+                > i {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    > div {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid $grey;
+        margin-right: 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-out;
+        > i {
+            font-size: 12px;
+            color: $primary;
+            transform: scale(0);
+            transition: all 0.3s ease-out;
+        }
+    }
+    > span {
+        font-size: 14px;
+    }
+}

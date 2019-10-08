@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutes } from './routes/routes';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthGuard } from './guards/auth.guard';
+import { WebComponent } from './components/web/web.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,11 @@ const routes: Routes = [
         loadChildren: './components/list/list.module#ListModule',
         canActivate: [AuthGuard]
     },
+    {
+        path: AppRoutes.web.path,
+        component: WebComponent,
+        loadChildren: './components/web/web.module#WebModule'
+    }
 ];
 
 @NgModule({

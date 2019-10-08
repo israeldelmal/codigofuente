@@ -1,0 +1,107 @@
+<header>
+    <div class="logo">
+        <img src="../../../assets/img/logo.png" alt="Logotipo">
+        <button class="nav-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    <button class="nav-btn mr">
+        <i class="fas fa-power-off"></i> Logout
+    </button>
+</header>
+<nav>
+    <div class="profile">
+        <div class="img">
+            <img src="../../../assets/img/profile.png">
+        </div>
+        <h1>James Sanchez</h1>
+        <sub>Admin</sub>
+        <span>james@medtrainer.com</span>
+    </div>
+    <ul class="menu">
+        <li><a href="#" class="active">Video Distribution</a></li>
+        <li>
+            <a href="#">Analitycs Dashboard</a>
+            <ul>
+                <li><a href="#">Monitoring Dashboard</a></li>
+                <li><a href="#">Monitoring Outbound</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Bundle Dashboard</a></li>
+    </ul>
+</nav>
+<section>
+    <div class="nav">
+        <h2>Welcome to Orbits!</h2>
+        <ul>
+            <span>Please select an option</span>
+            <li>
+                <button class="btn orange" [ngClass]="{'active': statusBundle == true}"><i class="fas fa-play-circle"></i> Create Bundle</button>
+            </li>
+            <li>
+                <button class="btn green" [ngClass]="{'active': statusBundle == true}" (click)="toggleBundle()"><i class="far fa-play-circle"></i> Assign Video</button>
+            </li>
+            <li>
+                <button class="btn blue"><i class="fas fa-search"></i></button>
+            </li>
+        </ul>
+    </div>
+    <div class="bundle" [ngClass]="{'active': statusBundle == true}">
+        <h3>Create Bundle</h3>
+        <form>
+            <input type="text" placeholder="Add Bundle Name">
+        </form>
+        <div class="selected-videos">
+            <h6>Select the videos you want to add bundle</h6>
+            <div>
+                <span *ngFor="let video of videoArray" class="selected-video">
+                    {{ video.id }} Vídeo
+                    <button type="button" (click)="addVideo(video, false)"><i class="fas fa-times"></i></button>
+                </span>
+            </div>
+            <label class="radio">
+                <input type="checkbox" (change)="selectAllVideos($event.target.checked)">
+                <div>
+                    <i class="fas fa-check"></i>
+                </div>
+                <span>Select all videos</span>
+            </label>
+        </div>
+        <div class="buttons-container">
+            <button type="button" class="btn green">Create</button>
+            <button type="button" class="btn" (click)="cancelBundle()">Cancel</button>
+        </div>
+    </div>
+    <div class="video-container">
+        <form class="filter">
+            <legend>Subject filter</legend>
+            <div class="input-container">
+                <select>
+                    <option selected disabled>All</option>
+                    <option>Option #1</option>
+                </select>
+            </div>
+        </form>
+        <div class="videos" *ngFor="let videos of videosData">
+            <label
+                class="video"
+                *ngFor="let video of videos.videos"
+                (change)="addVideo(video, $event.target.checked)"
+                [ngClass]="{'select': statusBundle == true}">
+                <input type="checkbox" [(ngModel)]="video.checked" name="{{ video.id }}">
+                <span class="selected">
+                    <i class="fas fa-check"></i>
+                </span>
+                <div class="header">
+                    <i class="far fa-play-circle"></i>
+                    <h5>{{ video.title }}</h5>
+                    <sub>{{ video.subtitle }}</sub>
+                </div>
+                <div class="body">
+                    <span>{{ video.id }}</span>
+                    <h4>{{ video.desc }}</h4>
+                </div>
+            </label>
+        </div>
+    </div>
+</section>
