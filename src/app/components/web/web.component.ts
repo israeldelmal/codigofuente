@@ -11,6 +11,8 @@ export class WebComponent {
     statusBundle = false;
     videoSelect = false;
     videoArray: any[] = [];
+    boolSelectAll: boolean;
+    isMobileActive = false;
 
     toggleBundle(status?: boolean) {
         this.statusBundle = status ? status : !this.statusBundle;
@@ -42,22 +44,34 @@ export class WebComponent {
         this.videoArray = [];
 
         this.statusBundle = false;
+
+        this.boolSelectAll = false;
     }
 
     selectAllVideos(event: boolean) {
-        if (event)
+        if (event) {
+            this.videoArray.forEach(video => {
+                video.checked = false
+            });
+    
+            this.videoArray = [];
+
             this.videosData.forEach(div => {
                 div.videos.forEach(video => {
                     video.checked = true;
                     this.videoArray.push(video);
                 })
             });
-        else {
+        } else {
             this.videoArray.forEach(video => {
                 video.checked = false
             });
     
             this.videoArray = [];
         }
+    }
+
+    activeNav(status?: boolean) {
+        this.isMobileActive = status ? status : !this.isMobileActive;
     }
 }

@@ -143,6 +143,10 @@ nav {
     background-color: white;
     z-index: 95;
     box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease-out;
+    &.active {
+        margin-left: 0px;
+    }
 }
 
 section {
@@ -223,7 +227,6 @@ section {
         width: 100%;
         font-size: 14px;
         font-weight: 500;
-        margin-bottom: 5px;
     }
     > div {
         width: 100%;
@@ -251,6 +254,7 @@ section {
     color: white;
     font-size: 14px;
     margin-right: 10px;
+    margin-top: 10px;
     &:last-of-type {
         margin-right: 0px;
     }
@@ -411,6 +415,69 @@ section {
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    nav {
+        margin-left: -250px;
+    }
+
+    .logo {
+        width: auto;
+        margin-left: 20px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .video {
+        width: calc(100% / 2 - 10px);
+        &:nth-of-type(n+3) {
+            margin-top: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .nav {
+        justify-content: center;
+        flex-direction: column;
+        > h2 {
+            margin-bottom: 10px;
+        }
+        > ul {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            span {
+                margin-right: 0px;
+                margin-bottom: 10px;
+            }
+            > li {
+                margin-right: 0px;
+                margin-bottom: 10px;
+                &:last-of-type {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+
+    .filter {
+        justify-content: center;
+    }
+
+    .video {
+        width: 100%;
+        margin-bottom: 20px;
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+        &:nth-of-type(n+3) {
+            margin-top: 0px;
         }
     }
 }
